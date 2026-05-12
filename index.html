@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LabBuilder: Protocol-Grounded 3D Layout Generation for Interactable and Safe Laboratory. ICML 2026.">
+  <meta name="keywords" content="LabBuilder, 3D Layout Generation, Laboratory, Protocol-Grounded, Chemical Safety, Navigation, ICML 2026">
+  <title>LabBuilder: Protocol-Grounded 3D Layout Generation for Interactable and Safe Laboratory</title>
+
+  <link rel="icon" href="./static/images/favicon.svg">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+</head>
+<body>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+
+      <h1 class="title is-2 publication-title">
+        LabBuilder: Protocol-Grounded 3D Layout Generation for Interactable and Safe Laboratory
+      </h1>
+
+      <div class="is-size-5 publication-authors">
+        <span class="author-block">Jianbao Cao*<sup>1,2</sup>,</span>
+        <span class="author-block">Zhangrui Zhao*<sup>1,3</sup>,</span>
+        <span class="author-block">Bohan Feng*<sup>1</sup>,</span>
+        <span class="author-block">Zixuan Hu<sup>4</sup>,</span>
+        <span class="author-block">Rui Li<sup>1</sup>,</span>
+        <span class="author-block">Haiyuan Wan<sup>5</sup>,</span>
+        <span class="author-block">Chenxi Li<sup>1</sup>,</span>
+        <br>
+        <span class="author-block">Jingyuan Li<sup>6</sup>,</span>
+        <span class="author-block">Wenzhe Cai<sup>1</sup>,</span>
+        <span class="author-block">Lei Bai<sup>1</sup>,</span>
+        <span class="author-block">Wanli Ouyang<sup>1,7</sup>,</span>
+        <span class="author-block">Lingyu Duan<sup>4</sup>,</span>
+        <span class="author-block">Di Huang<sup>3</sup>,</span>
+        <span class="author-block">Minting Pan<sup>1</sup>,</span>
+        <span class="author-block">Sha Zhang<sup>7</sup>,</span>
+        <br>
+        <span class="author-block">Xinzhu Ma<sup>3</sup>,</span>
+        <span class="author-block">Shixiang Tang<sup>&dagger;,7</sup>,</span>
+        <span class="author-block">Dongzhan Zhou<sup>&dagger;,1</sup></span>
+      </div>
+
+      <div class="is-size-6 publication-authors" style="margin-top: 0.5rem;">
+        <span class="author-block"><sup>1</sup>Shanghai AI Laboratory,</span>
+        <span class="author-block"><sup>2</sup>Wuhan University,</span>
+        <span class="author-block"><sup>3</sup>Beihang University,</span>
+        <span class="author-block"><sup>4</sup>Peking University,</span>
+        <br>
+        <span class="author-block"><sup>5</sup>Tsinghua University,</span>
+        <span class="author-block"><sup>6</sup>Shanghai Jiao Tong University,</span>
+        <span class="author-block"><sup>7</sup>The Chinese University of Hong Kong</span>
+      </div>
+
+      <div class="equal-contrib" style="margin-top: 0.3rem;">
+        *Equal Contribution &nbsp;&nbsp; &dagger;Equal Advising
+      </div>
+
+      <div class="is-size-5 publication-venue" style="margin-top: 0.8rem;">
+        <strong>ICML 2026</strong>
+      </div>
+
+      <!-- Links -->
+      <div class="column has-text-centered" style="margin-top: 1rem;">
+        <div class="publication-links">
+          <span class="link-block">
+            <a href="https://arxiv.org/abs/2605.02288" class="button is-normal is-rounded is-dark">
+              <span class="icon"><i class="ai ai-arxiv"></i></span>
+              <span>arXiv</span>
+            </a>
+          </span>
+          <span class="link-block">
+            <a href="https://arxiv.org/pdf/2605.02288" class="button is-normal is-rounded is-dark">
+              <span class="icon"><i class="fas fa-file-pdf"></i></span>
+              <span>Paper</span>
+            </a>
+          </span>
+          <span class="link-block">
+            <a href="https://github.com/che-0212/LabBuilder" class="button is-normal is-rounded is-dark">
+              <span class="icon"><i class="fab fa-github"></i></span>
+              <span>Code</span>
+            </a>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Teaser -->
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <img src="./static/images/teaser.png" class="teaser-image" alt="LabBuilder Overview">
+      <p class="is-size-6 has-text-grey" style="margin-top: 0.8rem;">
+        <strong>Figure 1:</strong> LabBuilder system overview. Given a free-form experimental description, LabBuilder generates 3D laboratory layouts satisfying navigation feasibility, geometric compliance, and chemical safety.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Abstract</h2>
+    <div class="abstract-content">
+      <p>
+        Automated laboratories hold the promise of significantly accelerating scientific discovery, yet the design of virtual experimental environments remains a core bottleneck limiting their scalable deployment. Existing 3D scene generation methods, designed primarily for household scenarios, fall short in laboratory settings due to three fundamental gaps: lack of protocol-level semantic understanding, neglect of chemical safety constraints, and absence of robot navigability guarantees.
+      </p>
+      <p style="margin-top: 1rem;">
+        We introduce <strong>LabBuilder</strong>, an end-to-end system that generates and verifies 3D laboratory layouts from concise textual specifications. LabBuilder operates through three tightly coupled components: <strong>LabForge</strong> curates a meta-dataset of annotated assets and chemical knowledge, translating natural language into structured protocols; <strong>LabGen</strong> synthesizes layouts via hierarchical initialization, geometric & chemical optimization, and navigation-aware refinement; <strong>LabTouchstone</strong> evaluates results across geometric compliance, feasibility, chemical safety, and semantic plausibility. On a benchmark of 30 chemical experiments, LabBuilder achieves a navigation success rate of 0.966 and substantially outperforms all baselines across all evaluation dimensions.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Highlights -->
+<section class="section" style="background-color: #f9f9f9;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Highlights</h2>
+    <div class="content">
+      <ul>
+        <li class="highlight-item"><strong>End-to-End Pipeline:</strong> From a single sentence of experimental description to a fully realized, safe, navigable 3D laboratory layout — no manual intervention required.</li>
+        <li class="highlight-item"><strong>LabForge:</strong> Integrates an Asset Knowledge Base (176 annotated lab entities) and a Chemical Knowledge Base covering 6 reaction types, enabling protocol-grounded layout generation.</li>
+        <li class="highlight-item"><strong>LabGen:</strong> A hierarchical generation framework with iterative optimization (FastRepair + LLMAdjust) and A*-based navigation verification, ensuring geometric, chemical, and navigability constraints are satisfied.</li>
+        <li class="highlight-item"><strong>LabTouchstone:</strong> A standardized four-dimensional evaluation benchmark (geometric compliance, feasibility, chemical safety, semantic plausibility) enabling rigorous cross-method comparison.</li>
+        <li class="highlight-item"><strong>State-of-the-Art Results:</strong> Navigation success rate of 0.966, chemical safety scores 3x higher than baselines, with no sacrifice in semantic quality.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Framework -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Method</h2>
+    <div class="has-text-centered">
+      <img src="./static/images/framework.png" class="framework-image" alt="LabBuilder Framework">
+      <p class="is-size-6 has-text-grey" style="margin-top: 0.8rem;">
+        <strong>Figure 2:</strong> LabBuilder framework. LabForge constructs knowledge bases and synthesizes structured protocols. LabGen performs hierarchical initialization, geometric & chemical optimization, and navigation-aware refinement.
+      </p>
+    </div>
+
+    <div class="content component-section" style="margin-top: 2rem;">
+      <h3 class="title is-4">LabForge: Protocol Synthesis</h3>
+      <p>
+        LabForge integrates two complementary knowledge sources: an <strong>Asset Knowledge Base</strong> cataloging 176 laboratory entities with geometry, semantics, and chemical hazard annotations, and a <strong>Chemical Knowledge Base</strong> covering substitution, cyclization, redox, functional group transformation, condensation, and alkylation reactions. An LLM compiler translates free-form descriptions into structured protocols with operation sequences, required assets, and safety constraints.
+      </p>
+
+      <h3 class="title is-4">LabGen: Hierarchical Layout Generation</h3>
+      <p>
+        LabGen operates in three stages: (1) <strong>Hierarchical Initialization</strong> with room-level zoning and desktop-level organization; (2) <strong>Geometric & Chemical Optimization</strong> using FastRepair for boundary/collision fixes and LLMAdjust for safety refinement; (3) <strong>Navigation-Aware Refinement</strong> projecting the 3D scene into 2D occupancy grids and verifying path feasibility with A* search.
+      </p>
+
+      <h3 class="title is-4">LabTouchstone: Four-Dimensional Evaluation</h3>
+      <p>
+        LabTouchstone quantifies layout quality across: <strong>Geometric Compliance</strong> (boundary violations, collisions), <strong>Feasibility Success Rate</strong> (asset availability, navigation), <strong>Chemical Safety</strong> (flammable isolation, incompatibility separation, storage), and <strong>Semantic Plausibility</strong> (realism, layout rationality, completeness via LLM scoring).
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Results -->
+<section class="section" style="background-color: #f9f9f9;">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results</h2>
+    <div class="has-text-centered">
+      <img src="./static/images/comparison.png" style="max-width: 100%; border-radius: 8px;" alt="Qualitative Comparison">
+      <p class="is-size-6 has-text-grey" style="margin-top: 0.8rem;">
+        <strong>Figure 3:</strong> Qualitative comparison with existing methods on the same chemical reaction. Green marks indicate passed checks; red marks indicate failures.
+      </p>
+    </div>
+    <div class="has-text-centered" style="margin-top: 2rem;">
+      <img src="./static/images/table_comparison.jpeg" style="max-width: 100%; border-radius: 8px;" alt="Quantitative Results">
+      <p class="is-size-6 has-text-grey" style="margin-top: 0.8rem;">
+        <strong>Table 1:</strong> Quantitative comparison on 30 chemical experiment protocols across geometric, feasibility, chemical safety, and semantic dimensions.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Video (placeholder) -->
+<section class="section">
+  <div class="container is-max-desktop has-text-centered">
+    <h2 class="title is-3">Video</h2>
+    <p class="has-text-grey">Coming soon.</p>
+    <!-- Uncomment and replace VIDEO_ID when available:
+    <div class="publication-video">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    -->
+  </div>
+</section>
+
+<!-- BibTeX -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">BibTeX</h2>
+    <div class="bibtex-body">
+<pre>@inproceedings{cao2026labbuilder,
+  title={LabBuilder: Protocol-Grounded 3D Layout Generation for Interactable and Safe Laboratory},
+  author={Cao, Jianbao and Zhao, Zhangrui and Feng, Bohan and Hu, Zixuan and Li, Rui and Wan, Haiyuan and Li, Chenxi and Li, Jingyuan and Cai, Wenzhe and Bai, Lei and Ouyang, Wanli and Duan, Lingyu and Huang, Di and Pan, Minting and Zhang, Sha and Ma, Xinzhu and Tang, Shixiang and Zhou, Dongzhan},
+  booktitle={Proceedings of the 43rd International Conference on Machine Learning (ICML)},
+  year={2026}
+}</pre>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        This website template is adapted from <a href="https://nerfies.github.io/" target="_blank">Nerfies</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
