@@ -86,3 +86,19 @@ footer {
   padding: 2rem 0;
   background-color: #f5f5f5;
 }
+
+.publication-video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  background-color: #000;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.publication-video:focus-visible {
+  outline: 3px solid hsl(204, 86%, 53%);
+  outline-offset: 2px;
+}

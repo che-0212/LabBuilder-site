@@ -187,16 +187,30 @@
   </div>
 </section>
 
-<!-- Video (placeholder) -->
-<section class="section">
+<!-- Video -->
+<section class="section" id="video">
   <div class="container is-max-desktop has-text-centered">
     <h2 class="title is-3">Video</h2>
-    <p class="has-text-grey">Coming soon.</p>
-    <!-- Uncomment and replace VIDEO_ID when available:
-    <div class="publication-video">
-      <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-    -->
+    <video
+      class="publication-video"
+      controls
+      preload="metadata"
+      playsinline
+      width="1280"
+      height="720"
+      poster="./static/images/video-poster.jpg"
+      aria-label="LabBuilder demo: a free-form experimental description is compiled into a structured protocol, then into a verified 3D laboratory layout that is navigable, geometrically compliant, and chemically safe."
+    >
+      <source src="./static/videos/labbuilder-demo.mp4" type="video/mp4">
+      <p class="has-text-grey">
+        Your browser does not support embedded video.
+        <a href="./static/videos/labbuilder-demo.mp4">Download the demo video (MP4, 2.8&nbsp;MB)</a>.
+      </p>
+    </video>
+    <p class="is-size-6 has-text-grey" style="margin-top: 0.8rem;">
+      <strong>Video 1:</strong> End-to-end LabBuilder demo — from a single sentence of experimental
+      description to a fully realized, safe, navigable 3D laboratory layout.
+    </p>
   </div>
 </section>
 
